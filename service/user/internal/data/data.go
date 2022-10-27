@@ -57,6 +57,8 @@ func NewDB(c *conf.Data) *gorm.DB {
 		panic(any("failed to connect database"))
 	}
 
+	db.AutoMigrate(&User{})
+
 	return db
 }
 

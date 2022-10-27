@@ -12,6 +12,7 @@ import (
 	"time"
 	"user/internal/biz"
 )
+
 // 定义数据表结构体
 type User struct {
 	ID          int64      `gorm:"primarykey"`
