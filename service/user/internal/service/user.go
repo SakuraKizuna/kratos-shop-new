@@ -43,7 +43,7 @@ func (u *UserService) CreateUser(ctx context.Context, req *v1.CreateUserInfo) (*
 	return &userInfoRsp, nil
 }
 
-func (u *UserService) GetUserInfo(ctx context.Context, req *v1.GetUserRequest) (*v1.GetUserResponse, error) {
+func (u *UserService) GetUserInfoRPC(ctx context.Context, req *v1.GetUserRequest) (*v1.GetUserResponse, error) {
 	user, err := u.uc.GetUserInfo(ctx, &biz.GetUserReqInfo{
 		Id: req.Id,
 	})

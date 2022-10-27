@@ -4,7 +4,8 @@ option go_package = "user/api/user/v1;v1";
 
 service User{
   rpc CreateUser(CreateUserInfo) returns (UserInfoResponse);
-  rpc GetUserInfo(GetUserRequest) returns (GetUserResponse);
+  rpc GetUserInfoRPC(GetUserRequest) returns (GetUserResponse);
+
 }
 
 // 创建用户所需字段
