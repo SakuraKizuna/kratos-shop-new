@@ -43,6 +43,26 @@ func (u *UserService) CreateUser(ctx context.Context, req *v1.CreateUserInfo) (*
 	return &userInfoRsp, nil
 }
 
+func (u *UserService) GetUserInfo(ctx context.Context, req *v1.GetUserRequest) (*v1.GetUserResponse, error) {
+	user, err := u.uc.GetUserInfo(ctx, &biz.GetUserReqInfo{
+		Id: req.Id,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	userInfoRsp := v1.GetUserResponse{
+		Id:       user.ID,
+		Mobile:   user.Mobile,
+		Password: user.Password,
+		NickName: user.NickName,
+		Gender:   user.Gender,
+		Role:     int32(user.Role),
+		Birthday: user.Birthday,
+	}
+	return &userInfoRsp, nil
+}
+
 func (u *UserService) GetUserInfoRPC(ctx context.Context, req *v1.GetUserRequest) (*v1.GetUserResponse, error) {
 	user, err := u.uc.GetUserInfo(ctx, &biz.GetUserReqInfo{
 		Id: req.Id,

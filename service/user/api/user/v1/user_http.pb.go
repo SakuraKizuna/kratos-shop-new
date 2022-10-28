@@ -27,7 +27,7 @@ type UserHTTPServer interface {
 
 func RegisterUserHTTPServer(s *http.Server, srv UserHTTPServer) {
 	r := s.Route("/")
-	r.GET("api/users/GetUserInfo/:userId", _User_GetUserInfo0_HTTP_Handler(srv))
+	r.GET("api/users/GetUserInfo", _User_GetUserInfo0_HTTP_Handler(srv))
 }
 
 func _User_GetUserInfo0_HTTP_Handler(srv UserHTTPServer) func(ctx http.Context) error {
@@ -63,7 +63,7 @@ func NewUserHTTPClient(client *http.Client) UserHTTPClient {
 
 func (c *UserHTTPClientImpl) GetUserInfo(ctx context.Context, in *GetUserRequest, opts ...http.CallOption) (*GetUserResponse, error) {
 	var out GetUserResponse
-	pattern := "api/users/GetUserInfo/:userId"
+	pattern := "api/users/GetUserInfo"
 	path := binding.EncodeURL(pattern, in, true)
 	opts = append(opts, http.Operation(OperationUserGetUserInfo))
 	opts = append(opts, http.PathTemplate(pattern))

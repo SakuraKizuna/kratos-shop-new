@@ -8,7 +8,7 @@ service User{
   rpc GetUserInfoRPC(GetUserRequest) returns (GetUserResponse);
   rpc GetUserInfo(GetUserRequest) returns (GetUserResponse){
     option(google.api.http) = {
-      get:"api/users/GetUserInfo/:userId"
+      get:"api/users/GetUserInfo"
     };
   }
 }
