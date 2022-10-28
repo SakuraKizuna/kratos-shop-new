@@ -14,14 +14,14 @@ service User{
   }
 }
 
-// åˆ›å»ºç”¨æˆ·æ‰€éœ€å­—æ®µ
+// ´´½¨ÓÃ»§ËùÐè×Ö¶Î
 message  CreateUserInfo{
   string nickName = 1;
   string password = 2;
   string mobile = 3;
 }
 
-// è¿”å›žç”¨æˆ·ä¿¡æ¯
+// ·µ»ØÓÃ»§ÐÅÏ¢
 message UserInfoResponse{
   int64 id = 1;
   string password = 2;
@@ -32,12 +32,12 @@ message UserInfoResponse{
   int32 role = 7;
 }
 
-// èŽ·å–ç”¨æˆ·ä¿¡æ¯æ‰€éœ€å­—æ®µ
+// »ñÈ¡ÓÃ»§ÐÅÏ¢ËùÐè×Ö¶Î
 message GetUserRequest{
   int64 id = 1;
 }
 
-// è¿”å›žç”¨æˆ·ä¿¡æ¯
+// ·µ»ØÓÃ»§ÐÅÏ¢
 message GetUserResponse{
   int64 id = 1;
   string password = 2;
