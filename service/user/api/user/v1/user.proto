@@ -1,11 +1,16 @@
 syntax = "proto3";
 package user.v1;
 option go_package = "user/api/user/v1;v1";
+import "google/api/annotations.proto";
 
 service User{
   rpc CreateUser(CreateUserInfo) returns (UserInfoResponse);
   rpc GetUserInfoRPC(GetUserRequest) returns (GetUserResponse);
-
+  rpc GetUserInfo(GetUserRequest) returns (GetUserResponse){
+    option(google.api.http) = {
+      get:"api/users/GetUserInfo/:userId"
+    };
+  }
 }
 
 // 创建用户所需字段

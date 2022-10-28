@@ -3,8 +3,49 @@
 
 openapi: 3.0.3
 info:
-    title: ""
+    title: User API
     version: 0.0.1
-paths: {}
+paths:
+    api/users/GetUserInfo/:userId:
+        get:
+            tags:
+                - User
+            operationId: User_GetUserInfo
+            parameters:
+                - name: id
+                  in: query
+                  schema:
+                    type: integer
+                    format: int64
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/user.v1.GetUserResponse'
 components:
-    schemas: {}
+    schemas:
+        user.v1.GetUserResponse:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    format: int64
+                password:
+                    type: string
+                mobile:
+                    type: string
+                nickName:
+                    type: string
+                birthday:
+                    type: integer
+                    format: int64
+                gender:
+                    type: string
+                role:
+                    type: integer
+                    format: int32
+            description: 返回用户信息
+tags:
+    - name: User
