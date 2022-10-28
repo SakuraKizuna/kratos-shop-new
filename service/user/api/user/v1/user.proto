@@ -3,23 +3,40 @@ package user.v1;
 option go_package = "user/api/user/v1;v1";
 
 service User{
-	rpc CreateUser(CreateUserInfo) returns (UserInfoResponse);
+  rpc CreateUser(CreateUserInfo) returns (UserInfoResponse);
+  rpc GetUserInfo(GetUserRequest) returns (GetUserResponse);
 }
 
 // 创建用户所需字段
 message  CreateUserInfo{
-	string nickName = 1;
-	string password = 2;
-	string mobile = 3;
+  string nickName = 1;
+  string password = 2;
+  string mobile = 3;
 }
 
 // 返回用户信息
 message UserInfoResponse{
-	int64 id = 1;
-	string password = 2;
-	string mobile = 3;
-	string nickName = 4;
-	int64 birthday = 5;
-	string gender = 6;
-	int32 role = 7;
+  int64 id = 1;
+  string password = 2;
+  string mobile = 3;
+  string nickName = 4;
+  int64 birthday = 5;
+  string gender = 6;
+  int32 role = 7;
+}
+
+// 获取用户信息所需字段
+message GetUserRequest{
+  int64 id = 1;
+}
+
+// 返回用户信息
+message GetUserResponse{
+  int64 id = 1;
+  string password = 2;
+  string mobile = 3;
+  string nickName = 4;
+  int64 birthday = 5;
+  string gender = 6;
+  int32 role = 7;
 }

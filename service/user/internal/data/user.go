@@ -40,6 +40,22 @@ func NewUserRepo(data *Data, logger log.Logger) biz.UserRepo {
 	}
 }
 
+func (r *userRepo) GetUserInfo(ctx context.Context, ui *biz.GetUserReqInfo) (*biz.UserInfo, error) {
+	var user User
+	result := r.data.db.Table("users").Where(&biz.User{ID: ui.Id}).First(&user)
+	if result.RowsAffected == 0 {
+		return nil, status.Errorf(codes.NotFound, "信息不存在")
+	}
+	return &biz.UserInfo{
+		ID:       user.ID,
+		Mobile:   user.Mobile,
+		Password: user.Password,
+		NickName: user.NickName,
+		Gender:   user.Gender,
+		Role:     user.Role,
+	}, nil
+}
+
 // CreateUser .
 func (r *userRepo) CreateUser(ctx context.Context, u *biz.User) (*biz.User, error) {
 	var user User

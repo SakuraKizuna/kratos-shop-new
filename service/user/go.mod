@@ -4,6 +4,7 @@ go 1.19
 
 require (
 	github.com/anaskhan96/go-password-encoder v0.0.0-20201010210601-c765b799fd72
+	github.com/davecgh/go-spew v1.1.1
 	github.com/go-kratos/kratos/contrib/registry/consul/v2 v2.0.0-20221026062414-3c65f16737e3
 	github.com/go-kratos/kratos/v2 v2.5.2
 	github.com/go-redis/redis/extra/redisotel v0.3.0

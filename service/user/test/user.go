@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
+	"github.com/davecgh/go-spew/spew"
 	"google.golang.org/grpc"
 	v1 "user/api/user/v1"
 )
@@ -36,7 +37,16 @@ func TestCreateUser() {
 		NickName: fmt.Sprintf("YWWW%d", 1),
 	})
 	if err != nil {
-		panic(any("grpc 创建用户失败" + err.Error()))
+		spew.Dump(err)
 	}
-	fmt.Println(rsp.Id)
+	fmt.Println(rsp)
+
+	rsp2, err2 := userClient.GetUserInfo(context.Background(), &v1.GetUserRequest{
+		Id: int64(3),
+	})
+	if err2 != nil {
+		spew.Dump("err2:", err2)
+	}
+	fmt.Println("rsp2:", rsp2)
+
 }

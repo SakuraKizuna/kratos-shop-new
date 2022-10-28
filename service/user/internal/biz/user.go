@@ -16,8 +16,24 @@ type User struct {
 	Role     int
 }
 
+// 定义返回数据结构体
+type UserInfo struct {
+	ID       int64
+	Mobile   string
+	Password string
+	NickName string
+	Birthday int64
+	Gender   string
+	Role     int
+}
+
+type GetUserReqInfo struct {
+	Id int64
+}
+
 type UserRepo interface {
 	CreateUser(context.Context, *User) (*User, error)
+	GetUserInfo(context.Context, *GetUserReqInfo) (*UserInfo, error)
 }
 
 type UserUsecase struct {
@@ -31,4 +47,8 @@ func NewUserUsecase(repo UserRepo, logger log.Logger) *UserUsecase {
 
 func (uc *UserUsecase) Create(ctx context.Context, u *User) (*User, error) {
 	return uc.repo.CreateUser(ctx, u)
+}
+
+func (uc *UserUsecase) GetUserInfo(ctx context.Context, ui *GetUserReqInfo) (*UserInfo, error) {
+	return uc.repo.GetUserInfo(ctx, ui)
 }
