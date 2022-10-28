@@ -56,6 +56,8 @@ github.com/ghodss/yaml v1.0.0/go.mod h1:4dBDuWmgqj2HViK6kFavaiC9ZROes6MMH2rRYeME
 github.com/go-kit/kit v0.8.0/go.mod h1:xBxKIO96dXMWWy0MnWVtmwkA9/13aqxPnvrjFYMA2as=
 github.com/go-kit/kit v0.9.0/go.mod h1:xBxKIO96dXMWWy0MnWVtmwkA9/13aqxPnvrjFYMA2as=
 github.com/go-kratos/aegis v0.1.2/go.mod h1:jYeSQ3Gesba478zEnujOiG5QdsyF3Xk/8owFUeKcHxw=
+github.com/go-kratos/kratos-layout v0.0.0-20221016132521-3fc8c7f3e686 h1:Fdn83DrRT8e5hkF01PG+ckfy/SDzhoh3+4FFOs36maQ=
+github.com/go-kratos/kratos-layout v0.0.0-20221016132521-3fc8c7f3e686/go.mod h1:WDY77RDBQpbgCcHS+vTQ8iw0dZf0gaeKsqx5fasKjEs=
 github.com/go-kratos/kratos/contrib/registry/consul/v2 v2.0.0-20221026062414-3c65f16737e3 h1:4ZKV2LmhN8dwWCoPIWcId5oWLxNMcg1GSBFfpPd6HPU=
 github.com/go-kratos/kratos/contrib/registry/consul/v2 v2.0.0-20221026062414-3c65f16737e3/go.mod h1:dPFycg+CursES3O0h/Ljr+owBsu72Ai2nMASh6/8nuI=
 github.com/go-kratos/kratos/v2 v2.5.2 h1:Oo2/YFl4ThCcGNZjAFwSCE7BXM9t5ljw3RBw+gKK6h4=
