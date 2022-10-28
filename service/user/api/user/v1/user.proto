@@ -21,7 +21,7 @@ message  CreateUserInfo{
   string mobile = 3;
 }
 
-// 返回用户信息
+// 返回用户信息 1
 message UserInfoResponse{
   int64 id = 1;
   string password = 2;
