@@ -2,6 +2,8 @@ package service
 
 import (
 	"context"
+	"errors"
+	"fmt"
 	"github.com/go-kratos/kratos/v2/log"
 	v1 "user/api/user/v1"
 	"user/internal/biz"
@@ -44,6 +46,10 @@ func (u *UserService) CreateUser(ctx context.Context, req *v1.CreateUserInfo) (*
 }
 
 func (u *UserService) GetUserInfo(ctx context.Context, req *v1.GetUserRequest) (*v1.GetUserResponse, error) {
+	fmt.Println(req.Id)
+	if req.Id == 0 {
+		return nil, errors.New("bind err")
+	}
 	user, err := u.uc.GetUserInfo(ctx, &biz.GetUserReqInfo{
 		Id: req.Id,
 	})

@@ -6,14 +6,15 @@ info:
     title: User API
     version: 0.0.1
 paths:
-    api/users/GetUserInfo:
+    api/users/GetUserInfo/{id}:
         get:
             tags:
                 - User
             operationId: User_GetUserInfo
             parameters:
                 - name: id
-                  in: query
+                  in: path
+                  required: true
                   schema:
                     type: integer
                     format: int64
