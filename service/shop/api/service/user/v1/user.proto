@@ -1,0 +1,94 @@
+syntax = "proto3";
+package user.v1;
+option go_package = "user/api/user/v1;v1";
+import "google/api/annotations.proto";
+import "google/protobuf/empty.proto";
+
+service User{
+  //rpc
+  rpc CreateUser(CreateUserInfo) returns (UserInfoResponse){};
+  rpc GetUserInfoRPC(GetUserRequest) returns (GetUserResponse){};
+  rpc GetUserList(PageInfo) returns (UserListResponse){}; // 用户列表
+  rpc GetUserByMobile(MobileRequest) returns (UserInfoResponse){}; // 通过 mobile 查询用户
+  rpc GetUserById(IdRequest) returns (UserInfoResponse){}; // 通过 Id 查询用户
+  rpc UpdateUser(UpdateUserInfo) returns (google.protobuf.Empty){}; // 更新用户
+  rpc CheckPassword(PasswordCheckInfo) returns (CheckResponse){}; // 验证用户密码
+
+  //http
+  rpc GetUserInfo(GetUserRequest) returns (GetUserResponse){
+    option(google.api.http) = {
+      get:"api/users/GetUserInfo/{id}",
+      //      body:"*",
+    };
+  }
+}
+
+// 创建用户所需字段
+message  CreateUserInfo{
+  string nickName = 1;
+  string password = 2;
+  string mobile = 3;
+}
+
+// 返回用户信息 1
+message UserInfoResponse{
+  int64 id = 1;
+  string password = 2;
+  string mobile = 3;
+  string nickName = 4;
+  int64 birthday = 5;
+  string gender = 6;
+  int32 role = 7;
+}
+
+// 获取用户信息所需字段
+message GetUserRequest{
+  int64 id = 1;
+}
+
+// 返回用户信息
+message GetUserResponse{
+  int64 id = 1;
+  string password = 2;
+  string mobile = 3;
+  string nickName = 4;
+  int64 birthday = 5;
+  string gender = 6;
+  int32 role = 7;
+}
+
+// 用户列表
+message UserListResponse{
+  int32 total = 1;
+  repeated UserInfoResponse data = 2;
+}
+
+// 分页
+message PageInfo{
+  uint32 pn = 1;
+  uint32 pSize = 2;
+}
+
+message MobileRequest{
+  string mobile = 1;
+}
+
+message IdRequest{
+  int64 id = 1;
+}
+
+message  UpdateUserInfo{
+  int64 id = 1;
+  string nickName = 2;
+  string gender = 3;
+  uint64 birthday = 4;
+}
+
+message PasswordCheckInfo{
+  string password = 1;
+  string encryptedPassword = 2;
+}
+
+message CheckResponse{
+  bool success = 1;
+}

@@ -88,3 +88,8 @@ func (u *UserService) GetUserInfoRPC(ctx context.Context, req *v1.GetUserRequest
 	}
 	return &userInfoRsp, nil
 }
+
+func (u *UserService) GetUserList(ctx context.Context, req *v1.PageInfo) (*v1.UserListResponse, error) {
+
+	return &v1.UserListResponse{}, nil
+}
